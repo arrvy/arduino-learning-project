@@ -23,58 +23,62 @@ void setup() {
 }
 
 void loop() 
-{
-  digitalWrite(RED1_PIN, 1); // Mengaktifkan set signal pertama
-  digitalWrite(GREEN2_PIN, 1);
-  digitalWrite(GREEN3_PIN, 1);
-  digitalWrite(GREEN1_PIN, 0);
-  digitalWrite(YELLOW1_PIN, 0);  
+{ 
+  digitalWrite(RED1_PIN, 0); // Mengaktifkan set signal pertama
+  digitalWrite(YELLOW1_PIN, 0);
+  digitalWrite(GREEN1_PIN, 1);
+  digitalWrite(RED2_PIN, 1);
   digitalWrite(YELLOW2_PIN, 0);
-  digitalWrite(RED2_PIN, 0);
-  digitalWrite(YELLOW3_PIN, 0);
-  digitalWrite(RED3_PIN, 0);
+  digitalWrite(GREEN2_PIN, 0);
+  digitalWrite(RED3_PIN, 1);
+  digitalWrite(YELLOW2_PIN, 0);
+  digitalWrite(GREEN3_PIN, 0);
+
   delay(5000);
- 
+
+  //Hanya beberapa yang diubah karena, satu set lampu lain dan lampu2 lain dibiarkan sama (tidak berubah walau ada delay)
   digitalWrite(YELLOW1_PIN, 1); // Mengaktifkan lampu kuning
   digitalWrite(YELLOW2_PIN, 1);
-  digitalWrite(RED1_PIN, 0); 
-  digitalWrite(GREEN2_PIN, 0);
+  digitalWrite(RED2_PIN, 0); 
+  digitalWrite(GREEN1_PIN, 0);
   delay(1000);
  
-  digitalWrite(GREEN1_PIN, 1); // Mengaktifkan set signal kedua
-  digitalWrite(RED2_PIN, 1);
-  digitalWrite(GREEN3_PIN, 1);
-  digitalWrite(RED1_PIN, 0);
-  digitalWrite(YELLOW1_PIN, 0);  
-  digitalWrite(YELLOW2_PIN, 0);
-  digitalWrite(RED3_PIN, 0);
-  digitalWrite(GREEN2_PIN, 0);
-  delay(5000);
- 
-  digitalWrite(YELLOW3_PIN, 1); // Mengaktifkan lampu kuning
-  digitalWrite(YELLOW2_PIN, 1);
-  digitalWrite(GREEN3_PIN, 0);
-  digitalWrite(RED2_PIN, 0);  
-  digitalWrite(GREEN1_PIN, 0);
-  delay(1000); 
-   
-  digitalWrite(RED3_PIN, 1); // Mengaktifkan set signal ketiga
-  digitalWrite(GREEN1_PIN, 1);
-  digitalWrite(GREEN2_PIN, 1);
-  digitalWrite(RED1_PIN, 0);
-  digitalWrite(YELLOW1_PIN, 0);  
+  digitalWrite(RED1_PIN, 1); // Mengaktifkan set signal kedua
+  digitalWrite(YELLOW1_PIN, 0);
+  digitalWrite(GREEN1_PIN,0);
   digitalWrite(RED2_PIN, 0);
   digitalWrite(YELLOW2_PIN, 0);
+  digitalWrite(GREEN2_PIN, 1); 
+  digitalWrite(RED3_PIN, 1);
   digitalWrite(YELLOW3_PIN, 0);
   digitalWrite(GREEN3_PIN, 0);
-  delay(5000);
  
-  digitalWrite(YELLOW3_PIN, 1); // Mengaktifkan lampu kuning
-  digitalWrite(YELLOW1_PIN, 1); 
+  delay(5000);
+
+  digitalWrite(YELLOW2_PIN, 1); // Mengaktifkan lampu kuning
+  digitalWrite(YELLOW3_PIN, 1);
+  digitalWrite(RED3_PIN, 0); 
   digitalWrite(GREEN2_PIN, 0);
-  digitalWrite(RED3_PIN, 0);
-  digitalWrite(GREEN1_PIN, 0);
   delay(1000);
+
+  digitalWrite(RED1_PIN, 1); // Mengaktifkan set signal ketiga
+  digitalWrite(YELLOW1_PIN, 0);
+  digitalWrite(GREEN1_PIN,0);
+  digitalWrite(RED2_PIN, 1);
+  digitalWrite(YELLOW2_PIN, 0);
+  digitalWrite(GREEN2_PIN,0);
+  digitalWrite(RED3_PIN, 0);
+  digitalWrite(YELLOW3_PIN, 0);
+  digitalWrite(GREEN3_PIN, 1);
+ 
+  delay(5000);
+
+  digitalWrite(YELLOW1_PIN, 1); // Mengaktifkan lampu kuning
+  digitalWrite(YELLOW3_PIN, 1);
+  digitalWrite(RED1_PIN, 0); 
+  digitalWrite(GREEN3_PIN, 0);
+  delay(1000);
+
 
      
 }
