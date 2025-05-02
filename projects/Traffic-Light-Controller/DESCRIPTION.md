@@ -36,9 +36,9 @@ Greenlight ON- A driver can start driving or keep driving.
 ![Gambarnya adalah ini](Traffic-Light-Controller.png)
 ## Cara Kerja
 Cara kerja sederhananya adalah kita akan menyimulasikan jalan dengan 3 percabangan. Dan nantinya kita akan mengonfigurasikan kombinasi lampu-lampu yang ada sedemikian sehingga akan mengatur jalannya jalan agar mengatasi terjadinya kemacetan.
-### Algoritma jalnnya lampu-lampu
-	1. Terdapat 3 jalan 
-	2. 
+
+[ALGORITMA POLA](ALGORITHM.md)
+
 ![Berikut adalah rancangan sederhananya](Step-of-Traffic-Light-Controller.png)
 ## Progres
 
@@ -46,8 +46,15 @@ Cara kerja sederhananya adalah kita akan menyimulasikan jalan dengan 3 percabang
 2.
 
 ## Conclusion
-
+Jadi, dengan adanya projek ini, kita bisa belajar mengenai dasar dari program arduino, wiring, logika, serta pola. Adapun penjabarannya adalah sebagai berikut:
+#### 1. Aku lebih paham mengenai orientasi/polarisasi dari LED
+#### 2. Lebih paham mengenai cara wiring dan penempatan komponen di breadboard dengan lebih baik dan rapi
+#### 3. Tau syntax pemrograman dan penggunaan program-program tertentu yang lebih optimal
+seperti pada program ini, pendeklarasian variabel disarankan agar kita sebagai pemrogram bisa lebih intuitif dalam memahami program/lebih masuk akal bagi kita dengan memberikan nama variabel sesuai dengan komponennya (mnemonic name). Juga penggunaan const int pada pendeklarasian pin sangat disarankan karena nilai tidak akan berubah (dan memang kita ingin hal seperti itu)
 ### The Problems and drawback
+1. Tidak bisa atau belum ada program untuk mengubah pola lampu secara langsung tanpa memberhentikan alat/ tanpa melalui proses perawatan/perbaikan (perubahan pada program secara langsung)
+2. Belum bisa diimplementasikan secara langsung
+3. Proyek dapat dioperasikan secara manual atau dengan menggunakan operasi pra-pemrograman. Proyek tidak dapat ditangani dengan kedua cara tersebut.
 
 [Future idea](FUTURE.md)
 
