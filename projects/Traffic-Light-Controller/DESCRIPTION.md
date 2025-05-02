@@ -39,7 +39,7 @@ Cara kerja sederhananya adalah kita akan menyimulasikan jalan dengan 3 percabang
 ### Algoritma jalnnya lampu-lampu
 	1. Terdapat 3 jalan 
 	2. 
-![Berikut adalah rancangan sederhananya](Step-of-Traffic-Light-Controller.jpg)
+![Berikut adalah rancangan sederhananya](Step-of-Traffic-Light-Controller.png)
 ## Progres
 
 1. Aku menduplikasi sedemikian rupa hingga hampir sama dengan kode awal
