@@ -23,8 +23,8 @@ Greenlight ON- A driver can start driving or keep driving.
 	1. Arduino Uno
 	2. Breadboard
 	3. LEDs ( Red, Yellow, Green)
-	4. Resistor( 220 Ohm)( *Aku pakai 1k ohm* )
-	5. Dupont cables/ Jumper cables.
+	4. Resistor( 220 Ohm)(*Aku pakai 1k ohm*)
+	5. Dupont cables/ Jumper cables. (*Sekitar 10 *)
 	
 	
 	
@@ -39,7 +39,7 @@ Cara kerja sederhananya adalah kita akan menyimulasikan jalan dengan 3 percabang
 ### Algoritma jalnnya lampu-lampu
 	1. Terdapat 3 jalan 
 	2. 
-
+![Berikut adalah rancangan sederhananya](Step-of-Traffic-Light-Controller.jpg)
 ## Progres
 
 1. Aku menduplikasi sedemikian rupa hingga hampir sama dengan kode awal
