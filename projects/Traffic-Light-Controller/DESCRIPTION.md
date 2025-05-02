@@ -33,7 +33,7 @@ Greenlight ON- A driver can start driving or keep driving.
 
 ## Circuit Connection (LED with Arduino)
 
-[Gambarnya adalah ini](https://github.com/arrvy/arduino-learning-project/tree/main/projects/Traffic-Light-Controller/Traffic-Light-Controller.png)
+![Gambarnya adalah ini](https://github.com/arrvy/arduino-learning-project/tree/main/projects/Traffic-Light-Controller/Traffic-Light-Controller.png)
 
 
 [Gambarnya adalah ini](D:\Document\Learn\arduino-learning-project\projects\Traffic-Light-Controller\Traffic-Light-Controller.png)
