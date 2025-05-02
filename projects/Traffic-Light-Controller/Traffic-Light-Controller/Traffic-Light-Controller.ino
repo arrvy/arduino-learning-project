@@ -1,8 +1,10 @@
+// ! BELUM SESUAI PIN DENGAN KODE (HIJAU HIDUP 2, MERAH HIDUP 1)
+
 void setup() {
   // configure the output pins
-  pinMode(2,OUTPUT);
-  pinMode(3,OUTPUT);
-  pinMode(4,OUTPUT);
+  pinMode(2,OUTPUT); //2,5,8 is RED
+  pinMode(3,OUTPUT); //3,6,9 is YELLOW
+  pinMode(4,OUTPUT); //4,7,10 is GREEN
   pinMode(5,OUTPUT);
   pinMode(6,OUTPUT);
   pinMode(7,OUTPUT);
