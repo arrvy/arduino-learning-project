@@ -49,3 +49,5 @@ Cara kerja sederhananya adalah kita akan menyimulasikan jalan dengan 3 percabang
 
 ### The Problems and drawback
 
+[Future idea](FUTURE.md)
+

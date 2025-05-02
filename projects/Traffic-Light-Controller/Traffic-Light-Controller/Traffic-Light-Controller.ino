@@ -1,12 +1,68 @@
 void setup() {
-  // put your setup code here, to run once:
-  pinMode (LED_BUILTIN,OUTPUT);
+  // configure the output pins
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT);
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(10,OUTPUT);
 }
-
-void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite (LED_BUILTIN,1);
+ 
+void loop() 
+{
+  digitalWrite(2,1); //enables the 1st set of signals
+  digitalWrite(7,1);
+  digitalWrite(10,1);
+  digitalWrite(4,0);
+  digitalWrite(3,0);  
+  digitalWrite(6,0);
+  digitalWrite(8,0);
+  digitalWrite(9,0);
+  digitalWrite(5,0);
+  delay(5000);
+ 
+  digitalWrite(3,1); //enables the yellow lights
+  digitalWrite(6,1);
+  digitalWrite(2,0); 
+  digitalWrite(7,0);
   delay(1000);
-  digitalWrite (LED_BUILTIN,0);
-  delay(1000);
+ 
+  digitalWrite(4,1); //enables the 2nd set of signals
+  digitalWrite(5,1);
+  digitalWrite(10,1);
+  digitalWrite(2,0);
+  digitalWrite(3,0);  
+  digitalWrite(6,0);
+  digitalWrite(8,0);
+  digitalWrite(9,0);
+  digitalWrite(7,0);
+  delay(5000);
+ 
+  digitalWrite(9,1); //enables the yellow lights
+  digitalWrite(6,1);
+  digitalWrite(10,0);
+  digitalWrite(5,0);  
+  digitalWrite(4,0);
+  delay(1000); 
+   
+  digitalWrite(8,1); //enables the 3rd set of signals
+  digitalWrite(4,1);
+  digitalWrite(7,1);
+  digitalWrite(2,0);
+  digitalWrite(3,0);  
+  digitalWrite(5,0);
+  digitalWrite(6,0);
+  digitalWrite(9,0);
+  digitalWrite(10,0);
+  delay(5000);
+ 
+  digitalWrite(9,1); //enables the yellow lights
+  digitalWrite(3,1); 
+  digitalWrite(7,0);
+  digitalWrite(8,0); 
+  digitalWrite(4,0);
+  delay(1000);   
 }
