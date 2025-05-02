@@ -8,3 +8,32 @@ This project is the traffic light controller by using Arduino. It is an electron
 
 ## Need For Traffic Light System
 
+Roads without any supervision or guidance can lead to traffic conflicts and accidents. Traffic signals are required for an orderly flow of traffic. A traffic signal is used as an instructing device that indicates the road user to act as per the displayed sign.
+
+Traffic lights allow everyone to cross the intersection point one by one, reducing conflicts between vehicles entering intersection points from different directions. It provides road safety, also helps to solve traffic in simple manners.
+
+There are different colours in traffic lights. Each light has a meaning, and these lights tell drivers what to do.
+
+Red light ON- A driver should stop.
+Yellow light ON- A driver has to slow down and be ready to stop.
+Greenlight ON- A driver can start driving or keep driving.
+
+## Component
+
+	Arduino Uno
+	Breadboard
+	LEDs ( Red, Yellow, Green)
+	Resistor( 220 Ohm)
+	Dupont cables/ Jumper cables.
+	
+	
+	
+	
+[source](https://robu.in/traffic-light-controller-using-arduino/)
+
+## Circuit Connection (LED with Arduino)
+
+[Gambarnya adalah ini](https://github.com/arrvy/arduino-learning-project/tree/main/projects/Traffic-Light-Controller/Traffic-Light-Controller.png)
+
+
+[Gambarnya adalah ini](D:\Document\Learn\arduino-learning-project\projects\Traffic-Light-Controller\Traffic-Light-Controller.png)
