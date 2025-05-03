@@ -31,3 +31,5 @@ Keren
 1. Adding Buzzer and LED for alarm, dengan memberikan pola-pola tertentu sesuai dengan jarak, degree, dll.
 2. Membuat radar agar bisa mengikuti suatu objek ketika sudah terdeteksi (Locking system)
 3. Membuat layaknya gun/senjata yang akan ikut mengarahkan moncongnya ke target
+
+[SOURCE](https://howtomechatronics.com/projects/arduino-radar-project/)
