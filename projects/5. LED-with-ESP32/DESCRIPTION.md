@@ -1,4 +1,4 @@
-# JUDUL PROJEK
+# LED with ESP32 and Blynk
 ## Dasar Teori
 ### Apa itu ...
 ### Cara Kerja
