@@ -16,9 +16,24 @@ In this project, i will create a device for feeding pet automaticly with ESP. Fi
 Cat Feeder adalah alat otomatis yang dirancang untuk memberi makan hewan peliharaan, khususnya kucing, pada waktu tertentu dan dalam jumlah yang terkontrol. Alat ini bermanfaat bagi pemilik hewan yang sering bepergian atau memiliki jadwal padat.
 ### Apa itu ESP
 ESP (seperti ESP8266 atau ESP32) adalah mikrokontroler dengan kemampuan WiFi bawaan yang memungkinkan alat untuk terhubung ke internet. ESP cocok digunakan dalam proyek IoT karena fleksibilitas dan kemampuannya untuk dikendalikan dari jarak jauh melalui jaringan.
+### Apa itu PushButton
+Push button ya... saklar. Saklar intinya adalah alat yang digunakan untuk memutus rangkaian listrik agar arus tidak mengalir pada rangkaian tersebut. Switch akan memutus rangkaian ketika kita menonaktifkan atau membuat state dari switch tersebut menjadi nonaktif
+
+Pushbutton, yang bekerja mirip seperti switch, hanya aktif ketika ditekan saja dan akan berubah state ketika tidak dipencet kembali
+
+ ![FourLeggedButton](./assets/image/FourLeggedTactileButtons.png)
+
+button yang akan kita gunakan adalah jenis tactile button / four leg button. Jadi nantin terdapat 4 terminal yang berguna sebagai button, terdapat 2 pasang saklar yang sudah terhubung/terpasang langsung dan ada yang harus diaktifkan dulu button nya sebelum terhubung
+
+**Terminal yang terdekatnya itu saling tidak terhubung, sedangkan terminal yang lebih jauh tapi tetap satu sisi itu saling terhubung**
+
+
+
 ### Apa itu RTC Sensor
+![alt](./assets/image/DS1307%20RTC.webp)
 RTC (Real Time Clock) adalah modul yang menyimpan waktu aktual (jam dan tanggal) meskipun mikrokontroler dimatikan. Dengan RTC, mikrokontroler dapat menjalankan suatu perintah pada waktu tertentu, misalnya memberi makan kucing setiap jam 7 pagi dan 5 sore.
 ### Apa itu Blynk
+![](./assets/image/blynk-web-client.png)
 Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile untuk mengontrol mikrokontroler seperti ESP melalui aplikasi. Dengan Blynk, pengguna bisa memberi perintah kepada alat dari smartphone.
 ### Cara Kerja
 - **MVP 1** : Aku mau ketika **tombol pushbutton ditekan, servo sebagai penutup food container akan bergerak** dan nantinya LED&Buzzer akan aktif juga. LCD bisa menampilkan status dari pengaktifan feeder tersebut ataupun juga bisa untuk memberi tahu sisa makanan yang tersedia (berarti memerlukan suatu sensor pengukur seperti ultrasonik) 
@@ -46,13 +61,33 @@ Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile un
 4. Uji coba: tekan tombol → servo bergerak → pakan keluar.
 5. Atur posisi servo agar dapat membuka dan menutup wadah pakan secara efisien.
 ### MVP 2 (RTC controlled)
+1. Pasang modul RTC ke ESP.
+2. Sinkronkan waktu RTC dengan waktu aktual.
+3. Program ESP agar membaca waktu dari RTC dan menjalankan servo di waktu tertentu (misalnya jam 7 pagi dan 5 sore).
+4. Uji coba: amati apakah servo bergerak sesuai jadwal.
 ### MVP 3 (Integrate it with IoT)
-
+1. Hubungkan ESP ke WiFi.
+2. Gunakan aplikasi Blynk (atau IoT lain) untuk membuat tombol kendali jarak jauh.
+3. Tambahkan fungsi di ESP agar bisa menerima perintah dari aplikasi dan menggerakkan servo.
 
 ## Wiring
 ### Wiring Pertama
+![wiring pertama / MVP](./assets/image/wiring1.png)
+### Wiring Kedua
+### Wiring Ketiga
+## Code
+### Code Pertama
+### Code Kedua
+### Code Ketiga
 ## Hasil
 ## Kesimpulan
 ### Permasalahan
 ### Kekurangan
 ### Future Ideas
+
+---
+### Source
+[Physical Computing : Buttons](https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
+[circuitdigest : pet feeder using arduino](https://circuitdigest.com/microcontroller-projects/automatic-pet-feeder-using-arduino)
+[Instructable](https://www.instructables.com/Simple-and-Easy-Automatic-Pet-Feeder-With-Arduino/)
+[RandomNerdTutorial : LCD](https://randomnerdtutorials.com/esp32-esp8266-i2c-lcd-arduino-ide/)
