@@ -9,7 +9,9 @@ In this project, i will create a device for feeding pet automaticly with ESP. Fi
  Pada taham pertama, kami akan membuat alat yang sangat sederhana yaitu dengan hanya mengaktifkan alat feeder dengan menggunakan button. Tahap kedua,setelah menunggu sensor RTC datang, alat akan menggunakan sensor tersebut agar bisa digunakan secara otomatis dan bisa diset jadwal untuk pemberian makan. 
  
  Tahapan terakhir adalah kami akan memanfaatkan kemampuan komuniaksi ESP dengan mengintegrasikan alat tersebut denagn aplikasi cloud berupa Blynk sehingga alat tersebut bisa digunakan secara remote atau jarak jauh dan bisa menyelesaikan permasalahan awal
- Dan setelah itu
+
+ **Note:**
+ Tapi karena aku di rumah gapunya peliharaan, maybe aku akan membuat alat ini berfungsi di luar ruangan (outdoor). Maka dari itu maybe aku perlu membuat alat tersebut berfungsi atau tahan ketika ditaruh di luar ruangan
 ### Apa itu Cat Feeder
 Cat Feeder adalah alat otomatis yang dirancang untuk memberi makan hewan peliharaan, khususnya kucing, pada waktu tertentu dan dalam jumlah yang terkontrol. Alat ini bermanfaat bagi pemilik hewan yang sering bepergian atau memiliki jadwal padat.
 ### Apa itu ESP
@@ -19,13 +21,14 @@ RTC (Real Time Clock) adalah modul yang menyimpan waktu aktual (jam dan tanggal)
 ### Apa itu Blynk
 Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile untuk mengontrol mikrokontroler seperti ESP melalui aplikasi. Dengan Blynk, pengguna bisa memberi perintah kepada alat dari smartphone.
 ### Cara Kerja
-- **MVP 1** : Ketika tombol ditekan, ESP akan menggerakkan servo untuk membuka wadah pakan.
-
+- **MVP 1** : Aku mau ketika **tombol pushbutton ditekan, servo sebagai penutup food container akan bergerak** dan nantinya LED&Buzzer akan aktif juga. LCD bisa menampilkan status dari pengaktifan feeder tersebut ataupun juga bisa untuk memberi tahu sisa makanan yang tersedia (berarti memerlukan suatu sensor pengukur seperti ultrasonik) 
+  Atau, sistem kedua, **pushbutton ketika dipencet akan mengaktifkan servo selama beberapa waktu** (agar mengeluarkan makanan dengan sejumlah takaran tertentu). Dan nanti bisa aja ada pushbutton lain yang bisa digunakan untuk mengatur seberapa lama servo akan dibuka yang akan berhubungan dengan seberapa banyak takaran per pengaktifan
 - **Tahap 2** : RTC mengatur jadwal makan otomatis. Servo akan bergerak pada waktu tertentu.
 
 - **Tahap 3** : Blynk atau platform IoT lainnya digunakan untuk memberi makan secara remote dari HP
 ## Alat dan Bahan
 - 1x ESP8266 (NodeMCU) atau ESP32
+- ESP32 Expansion board
 - 1x Servo motor (SG90)
 - 1x Push Button
 - 1x RTC Module (DS3231 atau DS1307)
@@ -33,6 +36,7 @@ Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile un
 - Breadboard
 - Catu daya (power bank atau adaptor 5V)
 - Wadah untuk tempat pakan
+- Botol Mineral
 - Hot glue/perekat (untuk rakitan mekanis)
 ## Langkah Kerja
 ### MVP 1 (Button Controlled Feeder)
