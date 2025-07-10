@@ -8,12 +8,16 @@ const int LED_BUZZER = 22;
 
 Servo Servo1;  //Inisialiasi atau membuat Servo1 agar fungsi2 Servo berlaku (tapi belum memasang pin nya dimana)
 
+LiquidCrystal lcd (13,14,26,25,33,32);
+
 void setup() {
 
   Servo1.attach(SERVO);
   pinMode(INPUT_BUTTON, INPUT);
   pinMode(LED_BUILTIIN, OUTPUT);
   pinMode(LED_BUZZER, OUTPUT);
+  lcd.begin(16,2);
+
   Serial.begin(9600);
   Servo1.write(0);
 }
@@ -21,6 +25,9 @@ void setup() {
 void loop() {
   int inputval = digitalRead(INPUT_BUTTON);
   Serial.println(inputval);
+
+
+  lcd.print("PetFeeder #!");
 
   if (inputval == 1 ){
     digitalWrite(LED_BUILTIIN, HIGH);
