@@ -55,11 +55,13 @@ Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile un
 - Hot glue/perekat (untuk rakitan mekanis)
 ## Langkah Kerja
 ### MVP 1 (Button Controlled Feeder)
-1. Rangkai servo dan push button ke ESP di breadboard.
+. Susun dulu rangkaian pushbutton
+1. Rangkai servo ESP di breadboard.
 2. Tulis program sederhana untuk memutar servo ketika tombol ditekan.
 3. Upload kode ke ESP menggunakan Arduino IDE.
 4. Uji coba: tekan tombol → servo bergerak → pakan keluar.
 5. Atur posisi servo agar dapat membuka dan menutup wadah pakan secara efisien.
+6. Lalu pasang LCD sebagai tampilan status dan info lainnya
 ### MVP 2 (RTC controlled)
 1. Pasang modul RTC ke ESP.
 2. Sinkronkan waktu RTC dengan waktu aktual.
@@ -73,16 +75,23 @@ Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile un
 ## Wiring
 ### Wiring Pertama
 ![wiring pertama / MVP](./assets/image/wiring1.png)
+![Wiring with NetPort](./assets/image/wiring1netport.png)
 ### Wiring Kedua
 ### Wiring Ketiga
 ## Code
 ### Code Pertama
+
 ### Code Kedua
 ### Code Ketiga
 ## Hasil
+
 ## Kesimpulan
-### Permasalahan
+### Permasalahan 
+
 ### Kekurangan
+#### Kekurangan Alat Pertama
+#### Kekurangan Alat Kedua
+#### Kekurangan Alat Ketiga
 ### Future Ideas
 
 ---
