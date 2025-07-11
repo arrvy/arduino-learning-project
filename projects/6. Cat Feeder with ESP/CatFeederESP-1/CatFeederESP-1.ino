@@ -1,6 +1,18 @@
 #include <ESP32Servo.h> //Library servo khusus ESP32, karena library Servo.h tidak bisa
 #include <LiquidCrystal.h>
 
+#define BLYNK_TEMPLATE_ID "TMPL6y0C54eMp"
+#define BLYNK_TEMPLATE_NAME "CatFeeder"
+#define BLYNK_AUTH_TOKEN "xwezacK1spzeSvYa8zL0pSDHZ2p1fwV0"
+
+/* Comment this out to disable prints and save space */
+// #define BLYNK_PRINT Serial
+
+
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+
 const int INPUT_BUTTON = 4;
 const int LED_BUILTIIN = 2;
 const int SERVO = 23;
@@ -32,7 +44,7 @@ void loop() {
   if (inputval == 1 ){
     digitalWrite(LED_BUILTIIN, HIGH);
     digitalWrite(LED_BUZZER, HIGH);
-    Servo1.write(180);
+    Servo1.write(90);
   }else{
     digitalWrite(LED_BUILTIIN, LOW);
     digitalWrite(LED_BUZZER, LOW);
