@@ -19,8 +19,22 @@ const int SERVO = 23;
 const int LED_BUZZER = 22;
 
 Servo Servo1;  //Inisialiasi atau membuat Servo1 agar fungsi2 Servo berlaku (tapi belum memasang pin nya dimana)
-
 LiquidCrystal lcd (13,14,26,25,33,32);
+BlynkTimer timer;
+
+char ssid[] = "Tenda_562B88";
+char pass[] = "ardydanfitri";
+
+int value = 0;
+int V0value = 0;
+
+BLYNK_WRITE(V0){
+  value = param.asInt(); 
+}
+
+void updatevalue(){
+   V0value = value;
+}
 
 void setup() {
 
@@ -32,10 +46,19 @@ void setup() {
 
   Serial.begin(9600);
   Servo1.write(0);
+  
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  timer.setInterval(500L,updatevalue);
 }
 
 void loop() {
-  int inputval = digitalRead(INPUT_BUTTON);
+  Blynk.run();
+  timer.run();
+  
+  
+ 
+  int btnState = digitalRead(INPUT_BUTTON);
+  int inputval = btnState || V0value;
   Serial.println(inputval);
 
 
