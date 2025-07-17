@@ -1,14 +1,98 @@
 # JUDUL PROJEK
 ## Dasar Teori
-### Apa itu ...
-### Cara Kerja
+### Apa itu SmartTrash
+SmartTrash adalah tempat sampah otomatis yang mampu mengenali keberadaan manusia atau objek di dekatnya menggunakan sensor, kemudian merespons dengan membuka tutupnya. Ini merupakan bagian dari implementasi IoT atau smart system yang membuat alat-alat di sekitar kita lebih responsif dan interaktif
+### Apa itu Ultrasonic Sensor HC SR04
+
+Sensor Ultrasonik sama sekali tidak perlu pin analog dalam menjalankan fungsionalistas nya meskipun sinyal yang dikeluarkan sensor adalah sinyal ultrasonik analog
+. Hal ini karena sensor ultrasonic **HC SR04 itu sendiri merupakan sebuah modul lengkap** yang fungsinya tidak hanya sebagai transducer saja. Melainkan juga mengonversi sebuah sinyal menjadi bentuk yang berguna atau dapat diamati oleh suatu sistem dan bisa digunakan
+![alt text](image-1.png)
+> Hal ini membuat saya sedikit tercerahkan, karena sampai sebelum saya membaca ini, yang aku pikirkan tentang sensor ya hanya fungsinya sebagai **Indera** komputer dalam berhubungan dengan dunia asli
+
+### Apa itu Servo SG90
+Servo SG90 merupakan motor servo kecil dengan sudut rotasi sekitar 180 derajat. Servo ini dikendalikan dengan sinyal PWM, yang artinya sudut posisi ditentukan oleh lebar pulsa dari Arduino. SG90 banyak digunakan pada projek robotik karena ukurannya kecil, ringan, dan cukup kuat untuk aplikasi ringan seperti penutup tempat sampah otomatis
+
+## Cara Kerja
+- Sensor ultrasonik HC SR04 mengirimkan sinyal ultrasonik dan akan menangkap sinyal pantulan
+- Ketika terdapat benda di dekatnya (<10 cm), sensor akan mengirimkan data/sinyal sebagai tanda bahwa ada objek didepan
+- Ketika arduino menerima sinyal input dari sensor, arduino memberikan output pada Servo untuk membuka dan memberikan sinyal HIGH ke LED dan Buzzer
+- Servo akan membuka dengan delay tertentu dan ketika sudah terbuka, servo akan menahan keadaan tersebut sampai tidak ada objek yang berada didepan sensor
+- Ketika sudah tidak ada, servo akan menutup secara perlahan dan LED&Buzzer akan mati
+- Program akan berulang
 ## Alat dan Bahan
+- Microcontroller (Arduino UNO R3)
+- Sensor Ultrasonic HC SR04
+- Servo Motor SG90
+- Kabel Jumper
+- Breadboard
+- Kardus
+- Solatip
+- Lem
 ## Langkah Kerja
+- Merancang wiring antara Arduino, sensor HC-SR04, dan Servo SG90.
+- Menentukan pin yang digunakan untuk input dan output.
+- Menulis dan meng-upload program ke Arduino.
+- Melakukan pengujian untuk mendeteksi apakah sensor bekerja dengan benar.
+- Mengatur logika kontrol servo berdasarkan pembacaan dari sensor.
+- Menambahkan LED sebagai indikator bahwa objek terdeteksi.
+- Mengatur delay dan logika gerakan servo agar lebih smooth.
+- Melakukan eksperimen untuk menghindari noise dan false trigger pada sensor.
+- Memasang seluruh sistem ke dalam bentuk fisik tempat sampah.
+- Melakukan dokumentasi hasil dan pergerakan.
+
+
 ## Wiring
 ### Wiring Pertama
+![alt text](image-3.png)
 ## Code
+[Go To Code]()
 ## Hasil
+Hasilnya terdapat pada gambar berikut:
+![alt text](<WhatsApp Image 2025-07-17 at 22.07.37_7adb13ac.jpg>)
+Pada projek kali ini juga, saya juga memberikan modifikasi sedikit dibagian **Kesan kemewahan dan elegan** bagi pengguna. Caranya adalah dengan **menggerakkan Relay secara perlahan ketika membuka maupun ketika menutup**.
+
+Cara membuat relay bisa bergerak secara perlahan adalah konsepnya sama seperti konsep **PID** agar membuat gerakan atau kondisi tidak berubah secara tiba-tiba
+
+Prinsip yang dipakai adalah ***Ease in and Ease out***:
+![alt text](image-2.png)
+
+Artinya saya mencoba membuat bahwa gerakan si servo akan bergerak secara perlahan pada saat awal pergerakan dan akan bergerak lebih cepat ditengah dan akan melambat lagi saat sudah selesai.
+
+Untuk mencapai hal tersebut, kita harus memberikan delay pada program servo sedemikian rupa sehingga pergerakan servo bisa melambat pada saat-saat tertentu.
+
+formula delay yang saya gunakan untuk servo pada saat gerakan membuka adalah:
+
+    delay((100/i)+i/10);
+
+![alt text](image-4.png)
+> Dengan sumbu x merupakan sudut servo (kondisi servo) dan y adalah delay
+Semakin tinggi delay, semakin lambat gerakannya
 ## Kesimpulan
+Kesimpulan dari projek kali ini adalah...
 ### Permasalahan
+1. Timer1 Conflict ketika kita menyoba memakai pin 9 dan 10 dengan fungsi yang berbeda (9 untuk Ultrasonik, 10 untuk PWM Servo)
+2. **PulseIn()** Sangan sensitif dengan noise (dalam hal timing) sehingga bisa mempersulit dalam penggunaan yang persisi
+   > Bukti bahwa *PulseIn* sangat sensitif adalah dengan memberikan delay pada led sebagai tanda ketika terdapat objek didepan ultrasonik
+   
+   Solusinya adalah dengan mengurangi noise nya dengan beberapa cara, yaitu secara kode, ataupun dengan filter kapasitor.
+
+   Caraku adalah dengan memberikan filter
+    
+        if (distance > 2 && distance < 400) {
+        if (distance < 10) {
+        // perintah servo
+        }
+        }
 ### Kekurangan
+- Sistem masih sangat tergantung pada posisi dan ketinggian objek (kadang tidak terdeteksi jika benda kecil atau tidak reflektif).
+
+- Tidak ada fitur keamanan (contoh: jika tangan pengguna terlalu lama di dalam, servo tetap menutup).
+
+- Power supply servo bisa drop jika hanya mengandalkan 5V pin dari Arduino (tidak stabil kalau banyak beban).
 ### Future Ideas
+> Pelajari hubungan pin2 dengan Timer, hal yang menyebabkan permasalahan pada projek kali ini
+
+- Menambahkan sensor inframerah untuk akurasi tambahan.
+- Membuat sistem logging sampah: misalnya, berapa kali dibuka, atau sudah penuh/belum. (**IoT baybehhh**)
+
+- Menggunakan proximity sensor berbasis inframerah untuk melengkapi ultrasonic.
