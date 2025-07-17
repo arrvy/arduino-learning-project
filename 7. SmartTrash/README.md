@@ -6,6 +6,7 @@
 ## Langkah Kerja
 ## Wiring
 ### Wiring Pertama
+## Code
 ## Hasil
 ## Kesimpulan
 ### Permasalahan

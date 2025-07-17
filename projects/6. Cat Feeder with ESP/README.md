@@ -35,6 +35,9 @@ RTC (Real Time Clock) adalah modul yang menyimpan waktu aktual (jam dan tanggal)
 ### Apa itu Blynk
 ![](./assets/image/blynk-web-client.png)
 Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile untuk mengontrol mikrokontroler seperti ESP melalui aplikasi. Dengan Blynk, pengguna bisa memberi perintah kepada alat dari smartphone.
+
+### Cara Kerja Blynk
+
 ### Cara Kerja
 - **MVP 1** : Aku mau ketika **tombol pushbutton ditekan, servo sebagai penutup food container akan bergerak** dan nantinya LED&Buzzer akan aktif juga. LCD bisa menampilkan status dari pengaktifan feeder tersebut ataupun juga bisa untuk memberi tahu sisa makanan yang tersedia (berarti memerlukan suatu sensor pengukur seperti ultrasonik) 
   Atau, sistem kedua, **pushbutton ketika dipencet akan mengaktifkan servo selama beberapa waktu** (agar mengeluarkan makanan dengan sejumlah takaran tertentu). Dan nanti bisa aja ada pushbutton lain yang bisa digunakan untuk mengatur seberapa lama servo akan dibuka yang akan berhubungan dengan seberapa banyak takaran per pengaktifan
@@ -97,7 +100,7 @@ Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile un
 ### Future Ideas
 
 ---
-### Source
+## Source
 [Physical Computing : Buttons](https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
 [circuitdigest : pet feeder using arduino](https://circuitdigest.com/microcontroller-projects/automatic-pet-feeder-using-arduino)
 [Instructable : How to Make an Easy Automatic Pet Feeder for Less Than $25!](https://www.instructables.com/Simple-and-Easy-Automatic-Pet-Feeder-With-Arduino/)
