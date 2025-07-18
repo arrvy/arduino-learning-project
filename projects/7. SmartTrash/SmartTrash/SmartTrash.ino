@@ -39,10 +39,10 @@ void loop() {
   distance = (duration * 0.034) / 2;
 
   if (distance > 1 && distance < 400){
-    if (distance < 10 && opened == false){
+    if (distance < 14 && opened == false){
       digitalWrite(LED_BUILTIN , HIGH);
 
-      for (int i = 1; i <= 91 ; i++){
+      for (int i = 1; i <= 85 ; i++){
         myservo.write(i);
         delay((90/i)+i/9);
       }
@@ -53,14 +53,14 @@ void loop() {
   }
 
   if (opened == true && distance > 2 && distance < 400){
-    if (distance < 10){
+    if (distance < 14){
       delay(1500);
     }
     else{
       
-      for (int i = 90; i >= 0 ; i--){
+      for (int i = 85; i >= 0 ; i--){
         myservo.write(i);
-        delay(10);
+        delay(8);
         digitalWrite(LED_BUILTIN, LOW);
       }
       opened = false;
