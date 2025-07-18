@@ -50,7 +50,7 @@ Servo SG90 merupakan motor servo kecil dengan sudut rotasi sekitar 180 derajat. 
 ### Wiring Pertama
 ![alt text](image-3.png)
 ## Code
-[Go To Code]()
+[Go To Code](./SmartTrash/SmartTrash.ino)
 ## Hasil
 Hasilnya terdapat pada gambar berikut:
 ![alt text](<WhatsApp Image 2025-07-17 at 22.07.37_7adb13ac.jpg>)
