@@ -11,6 +11,7 @@ SmartTrash adalah tempat sampah otomatis yang mampu mengenali keberadaan manusia
 
 Sensor Ultrasonik sama sekali tidak perlu pin analog dalam menjalankan fungsionalistas nya meskipun sinyal yang dikeluarkan sensor adalah sinyal ultrasonik analog
 . Hal ini karena sensor ultrasonic **HC SR04 itu sendiri merupakan sebuah modul lengkap** yang fungsinya tidak hanya sebagai transducer saja. Melainkan juga mengonversi sebuah sinyal menjadi bentuk yang berguna atau dapat diamati oleh suatu sistem dan bisa digunakan
+
 ![alt text](image-1.png)
 > Hal ini membuat saya sedikit tercerahkan, karena sampai sebelum saya membaca ini, yang aku pikirkan tentang sensor ya hanya fungsinya sebagai **Indera** komputer dalam berhubungan dengan dunia asli
 
@@ -117,6 +118,9 @@ Dari proyek dan implementasi kode di atas, dapat disimpulkan:
 
 ## Source
 [How to Mechatronics : How servo motor work](https://howtomechatronics.com/how-it-works/how-servo-motors-work-how-to-control-servos-using-arduino/)
+
 [How to Mechatronics : Ultrasonic Sensor HC SR04](https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/)
+
 [Wokwi : Servo Code](https://wokwi.com/projects/374644935912458241)
+
 [Arduino ProjectHub : Arduino Trash Bot](https://projecthub.arduino.cc/ashraf_minhaj/arduino-trash-bot-auto-openclose-trash-bin-c81eff)
