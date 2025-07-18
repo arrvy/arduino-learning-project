@@ -12,7 +12,7 @@ SmartTrash adalah tempat sampah otomatis yang mampu mengenali keberadaan manusia
 Sensor Ultrasonik sama sekali tidak perlu pin analog dalam menjalankan fungsionalistas nya meskipun sinyal yang dikeluarkan sensor adalah sinyal ultrasonik analog
 . Hal ini karena sensor ultrasonic **HC SR04 itu sendiri merupakan sebuah modul lengkap** yang fungsinya tidak hanya sebagai transducer saja. Melainkan juga mengonversi sebuah sinyal menjadi bentuk yang berguna atau dapat diamati oleh suatu sistem dan bisa digunakan
 
-![alt text](image-1.png)
+![alt text](./assets/image-1.png)
 > Hal ini membuat saya sedikit tercerahkan, karena sampai sebelum saya membaca ini, yang aku pikirkan tentang sensor ya hanya fungsinya sebagai **Indera** komputer dalam berhubungan dengan dunia asli
 
 ### Apa itu Servo SG90
@@ -29,11 +29,13 @@ Servo SG90 merupakan motor servo kecil dengan sudut rotasi sekitar 180 derajat. 
 - Microcontroller (Arduino UNO R3)
 - Sensor Ultrasonic HC SR04
 - Servo Motor SG90
-- Kabel Jumper
+- Kabel Jumper (MM, MF, FF)
 - Breadboard
 - Kardus
 - Solatip
 - Lem
+- Guntik
+- Tusuk Sate
 ## Langkah Kerja
 - Merancang wiring antara Arduino, sensor HC-SR04, dan Servo SG90.
 - Menentukan pin yang digunakan untuk input dan output.
@@ -49,23 +51,23 @@ Servo SG90 merupakan motor servo kecil dengan sudut rotasi sekitar 180 derajat. 
 
 ## Wiring
 ### Wiring Pertama
-![alt text](image-3.png)
+![alt text](./assets/image-3.png)
 ## Code
 [Go To Code](./SmartTrash/SmartTrash.ino)
 ## Hasil
 Hasilnya terdapat pada gambar berikut:
-![alt text](<WhatsApp Image 2025-07-17 at 22.07.37_7adb13ac.jpg>)
+![alt text](<./assets/WhatsApp Image 2025-07-17 at 22.07.37_7adb13ac.jpg>)
 
-![alt text](<WhatsApp Image 2025-07-18 at 10.17.55_9ba4ed23.jpg>)
+![alt text](<./assets/WhatsApp Image 2025-07-18 at 10.17.55_9ba4ed23.jpg>)
 
-[Go To Video Result](./SmartTrash-result.mp4)
+[Go To Video Result](./assets/SmartTrash-result.mp4)
 
 Pada projek kali ini juga, saya juga memberikan modifikasi sedikit dibagian **Kesan kemewahan dan elegan** bagi pengguna. Caranya adalah dengan **menggerakkan Relay secara perlahan ketika membuka maupun ketika menutup**.
 
 Cara membuat relay bisa bergerak secara perlahan adalah konsepnya sama seperti konsep **PID** agar membuat gerakan atau kondisi tidak berubah secara tiba-tiba
 
 Prinsip yang dipakai adalah ***Ease in and Ease out***:
-![alt text](image-2.png)
+![alt text](./assets/image-2.png)
 
 Artinya saya mencoba membuat bahwa gerakan si servo akan bergerak secara perlahan pada saat awal pergerakan dan akan bergerak lebih cepat ditengah dan akan melambat lagi saat sudah selesai.
 
@@ -75,7 +77,7 @@ formula delay yang saya gunakan untuk servo pada saat gerakan membuka adalah:
 
     delay((100/i)+i/10);
 
-![alt text](image-4.png)
+![alt text](./assets/image-4.png)
 > Dengan sumbu x merupakan sudut servo (kondisi servo) dan y adalah delay
 Semakin tinggi delay, semakin lambat gerakannya
 ## Kesimpulan
