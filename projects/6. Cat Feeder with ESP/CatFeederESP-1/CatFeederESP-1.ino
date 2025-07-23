@@ -16,7 +16,7 @@
 const int INPUT_BUTTON = 4;
 const int LED_BUILTIIN = 2;
 const int SERVO = 23;
-const int LED_BUZZER = 22;
+const int LED_BUZZER = 18;
 
 Servo Servo1;  //Inisialiasi atau membuat Servo1 agar fungsi2 Servo berlaku (tapi belum memasang pin nya dimana)
 LiquidCrystal lcd (13,14,26,25,33,32);

@@ -32,6 +32,10 @@ button yang akan kita gunakan adalah jenis tactile button / four leg button. Jad
 ### Apa itu RTC Sensor
 ![alt](./assets/image/DS1307%20RTC.webp)
 RTC (Real Time Clock) adalah modul yang menyimpan waktu aktual (jam dan tanggal) meskipun mikrokontroler dimatikan. Dengan RTC, mikrokontroler dapat menjalankan suatu perintah pada waktu tertentu, misalnya memberi makan kucing setiap jam 7 pagi dan 5 sore.
+
+Kita akan menggunakan komunikasi I2C untuk menyambungkan RTC ke ESP32. Komunikasi ini sangat berguna karena bisa menghubungkan modul-modul yang banyak hanya dengan menggunakan 2 wiring (untuk data dan clock-nya)
+![alt text](./assets/image/RTC-Adress.png)
+RTC DS1307 sendiri memiliki adress bawaan yaitu *0x50* (untuk chip DS1307) dan *0x68* (untuk chip)
 ### Apa itu Blynk
 ![](./assets/image/blynk-web-client.png)
 Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile untuk mengontrol mikrokontroler seperti ESP melalui aplikasi. Dengan Blynk, pengguna bisa memberi perintah kepada alat dari smartphone.
@@ -77,29 +81,48 @@ Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile un
 
 ## Wiring
 ### Wiring Pertama
+
 ![wiring pertama / MVP](./assets/image/wiring1.png)
 ![Wiring with NetPort](./assets/image/wiring1netport.png)
-### Wiring Kedua
-### Wiring Ketiga
+### Wiring Kedua & Ketiga
+><p style="color:red">Perubahan wiring dilakukan karena menyesuaikan pin-pin yang digunakan untuk I2C Protokol</p>
+![alt text](./assets/image/wiring2.png)
 ## Code
 ### Code Pertama
 
 ### Code Kedua
 ### Code Ketiga
 ## Hasil
-
+![Result](./assets/image/result1.jpg)
 ## Kesimpulan
+Proyek Cat Feeder with ESP berhasil membuktikan bahwa sistem pemberian pakan hewan peliharaan dapat dibuat otomatis, fleksibel, dan terjangkau dengan menggunakan mikrokontroler ESP32. Dengan menggabungkan kontrol manual (tombol), penjadwalan waktu menggunakan modul RTC, dan kendali jarak jauh melalui platform IoT Blynk, alat ini mampu memberikan pakan secara efisien sesuai waktu yang ditentukan maupun perintah dari pengguna.
+
+Fitur tambahan seperti tampilan waktu pada LCD serta indikator LED dan buzzer memberikan nilai tambah dalam hal interaksi pengguna dan status sistem. Proyek ini menunjukkan potensi penerapan Internet of Things (IoT) dalam kehidupan sehari-hari yang sederhana namun bermanfaat, terutama bagi pemilik hewan peliharaan dengan aktivitas yang padat.
+
+
 ### Permasalahan 
 1. Tiba-tiba terjadi korsleting saat troubleshoot kenapa LCD ga munculin teks
 2. Input dari Blynk kurang konsisten, menyebabkan makanan yang keluar ga sesuai keinginan kita.
 3. Jika kita mau menjadikannya IoT. Pastikan tombol atau input dari IoT itu hanya **untuk menjalankan perintah secara jelas**, jangan untuk mengaktifkan atau mematikan sesuatu secara langsung.
+4. Kode looping rada kedelay karena mekanisme delaynya ituh
+5. LCD kurang terlihat walau potentio sudah diset
 ### Kekurangan
 #### Kekurangan Alat Pertama
-#### Kekurangan Alat Kedua
-#### Kekurangan Alat Ketiga
+- Lubang keluaran makanan tidak terlalu besar atau botol penyimpanan terlalu miring sehingga menyebabkan *bottleneck* (literally bottle neck, :v).
+- 
+#### Kekurangan Alat Kedua (RTC)
+- Waktu RTC kurang nyata, rada telat
+- Terlalu banyak menggunakan delay, **seharusnya pake millis**
+#### Kekurangan Alat Ketiga (Blynk)
+- Output/bukaan penutup kurang konsisten ketika membuka pakai Blynk
 ### Future Ideas
 
 ---
+1. Menambah **beberapa mode** pemberian makan
+2. Menambah metode pemberian makan berdasarkan **jumlah per pengeluaran**
+3. Menambah sensor untuk **mendeteksi hewan** terdekat
+4. Menambah sensor untuk **mengetahui sisa makanan** secara real time dan remote
+5. Menambah **debouncing** physical button
 ## Source
 [Physical Computing : Buttons](https://makeabilitylab.github.io/physcomp/arduino/buttons.html)
 
@@ -110,3 +133,8 @@ Blynk adalah platform IoT yang memungkinkan pengguna membuat antarmuka mobile un
 [Instructable : Automatic Arduino Powered Pet Feeder](https://www.instructables.com/Automatic-Arduino-Powered-Pet-Feeder/)
 
 [RandomNerdTutorial : LCD](https://randomnerdtutorials.com/esp32-esp8266-i2c-lcd-arduino-ide/)
+
+[RandomNerdTutorial : RTC Module](https://randomnerdtutorials.com/guide-for-real-time-clock-rtc-module-with-arduino-ds1307-and-ds3231/)
+
+[RandomNerdTutorial : I2C Communication Arduino IDE](https://randomnerdtutorials.com/esp32-i2c-communication-arduino-ide/)
+
