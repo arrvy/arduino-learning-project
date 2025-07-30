@@ -1,3 +1,7 @@
+# Root
+.vscode
+
+#? Project 8
 /projects/8. Try PlatfromIO/.pio
 /projects/8. Try PlatfromIO/vscode/.browse.c_cpp.db*
 /projects/8. Try PlatfromIO/vscode/c_cpp_properties.json
