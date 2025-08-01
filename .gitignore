@@ -8,3 +8,7 @@
 /projects/8. Try PlatfromIO/vscode/launch.json
 /projects/8. Try PlatfromIO/vscode/ipch
 /projects/8. Try PlatfromIO/src/myenv
+
+#? Project 9.1
+
+#! GitIgnore, gausa ditaruh di root folder, gitignor bisa ditaruh di per folder projek

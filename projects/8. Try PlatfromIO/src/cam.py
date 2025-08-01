@@ -1,4 +1,5 @@
 import cv2
+#! Run in virtual environment (venv folder) and py 3.12 
 import mediapipe as mp
 import requests
 # ESP32 Base URL
