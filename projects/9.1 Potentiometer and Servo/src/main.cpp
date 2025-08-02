@@ -1,7 +1,7 @@
 #include <Arduino.h>
-#include <ESP32Servo.h>
+#include <ESP32_Servo.h>
 
-const int SERVO_1 = 23;
+const int SERVO_1 = 17;
 #define POT_1 15
 
 Servo servo1;
@@ -36,7 +36,6 @@ void loop() {
   Serial.print("pot1read = ");
   Serial.println(pot1read);
   servo1.write(pot1read);
-  delay(15);
   time_now = millis();
   }
   
