@@ -47,17 +47,19 @@ void printlnButtonCondition(bool butCondition, bool butConditionNow){
 
 }
 
+// Function that call to define clicked button
 void buttonRead(const int buttonpin){
   ButtonInput = analogRead(buttonpin);
 
 
   bool anyPressed = false;
 
+  // All 3 possible button interval and LED status
   anyPressed |= buttonInterval(0,LED_1_ROTATION,ButtonInput,  maxbut1,timeButton1,550,800);
   anyPressed |= buttonInterval(1,LED_4_GRIP    ,ButtonInput,  maxbutselect,timeButtonSelect,200,300);
   anyPressed |= buttonInterval(2,LED_3_ELBOW   ,ButtonInput,  maxbut3,timeButton3,10,100);
 
-
+  //To turn off LED pin after button notclicked/unpressed
   for(int i = 1; i < 5;i++){
     if(!anyPressed){
         digitalWrite(ledPins[i],LOW);
@@ -115,27 +117,32 @@ void buttonRead(const int buttonpin){
 
 //? ini baru gunanya aku belajar saat semester 1, materi Parameter menggunakan Reference
 bool buttonInterval(const uint_fast8_t buttonindex,const int buttonpin,u_int16_t butvalue, uint16_t &maxbutvalue,uint64_t &timebutton, uint16_t floor, uint16_t ceil){
-    if (butvalue >= floor && butvalue < ceil){
+  //* Interval of button
+  if (butvalue >= floor && butvalue < ceil){
     digitalWrite(buttonpin,HIGH);
 
     // Serial.println("Button Left (KEY 1) Is Clicked");
     maxbutvalue = maximumValue(maxbutvalue,butvalue);
     // showMaxValue(maxbutvalue,butvalue);
 
-    //* Mengurangi Intensitas Input Masuk
+    //* Mengurangi Intensitas Input Masuk dan Melakukan Aksi
         if(millis() - timebutton >= 200){
+        digitalWrite(buttonpin,HIGH);
         Serial.print("Button ");
         Serial.println(buttonchar[buttonindex]);
         Serial.println("Is Clicked");
+
+        
+
         //but1 = but1_now;
         timebutton = millis();
-        digitalWrite(buttonpin,HIGH);
+       
         
     }   
         return true;
     }
 
-    return false;
+    return false; //Unclicked
 
    
 }

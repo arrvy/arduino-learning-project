@@ -2,6 +2,8 @@
 #include <Arduino.h>
 #include <pin_definition.h>
 #include <button_mechanism.h>
+//#include <lcd_ui.h>
+
 
 //* TODO : Buat sistem ambil nama var
 // #include <string.h>
@@ -18,21 +20,37 @@ void attachingPin();
 
 
 
+
 void setup(){
   Serial.begin(115200);
   attachingPin();
+  initLCD();
+
+  startUI();
+
 }
 
 void loop(){
+  lcd.setCursor(0, 0);
+  lcd.print("halo");
+  if(millis() - lcdTimer > 200){
+    lcd.clear();
+    lcdTimer = millis();
+  }
 
   if (millis() - timeNow > 0){
+    // Read Analog Input from Button that correlate
     buttonRead(BUTTON_PIN);
     timeNow = millis();
 
-    if(millis() - timeInputButton > 100){
+    if(millis() - timeInputButton > 100 && ButtonInput != 0){
       Serial.print("ButtonRead = ");
       Serial.println(ButtonInput);
       timeInputButton = millis();
+    }
+
+    if(onMenu){
+      handleMenuLogic();
     }
 
   }
@@ -43,6 +61,7 @@ void loop(){
 //* Function Implementation
 
 
+// For Attaching Pin
 
 void attachingPin(){
   //* Input Mode

@@ -53,10 +53,13 @@ void buttonRead(const int buttonpin){
 
   bool anyPressed = false;
 
-  anyPressed |= buttonInterval(0,LED_1_ROTATION,ButtonInput,  maxbut1,timeButton1,550,800);
+  anyPressed |= buttonInterval(0,LED_2_SHOULDER,ButtonInput,  maxbut1,timeButton1,550,800);
   anyPressed |= buttonInterval(1,LED_4_GRIP    ,ButtonInput,  maxbutselect,timeButtonSelect,200,300);
   anyPressed |= buttonInterval(2,LED_3_ELBOW   ,ButtonInput,  maxbut3,timeButton3,10,100);
 
+  if (anyPressed == 1 && ButtonInput < 200 && ButtonInput >=300){
+    
+  }
 
   for(int i = 1; i < 5;i++){
     if(!anyPressed){
@@ -115,7 +118,7 @@ void buttonRead(const int buttonpin){
 
 //? ini baru gunanya aku belajar saat semester 1, materi Parameter menggunakan Reference
 bool buttonInterval(const uint_fast8_t buttonindex,const int buttonpin,u_int16_t butvalue, uint16_t &maxbutvalue,uint64_t &timebutton, uint16_t floor, uint16_t ceil){
-    if (butvalue >= floor && butvalue < ceil){
+    if (butvalue >= floor && butvalue < ceil){    
     digitalWrite(buttonpin,HIGH);
 
     // Serial.println("Button Left (KEY 1) Is Clicked");
@@ -124,12 +127,23 @@ bool buttonInterval(const uint_fast8_t buttonindex,const int buttonpin,u_int16_t
 
     //* Mengurangi Intensitas Input Masuk
         if(millis() - timebutton >= 200){
+        digitalWrite(buttonpin,HIGH);
         Serial.print("Button ");
-        Serial.println(buttonchar[buttonindex]);
+        Serial.println(buttonchar[buttonindex]); 
         Serial.println("Is Clicked");
+
+          if( butvalue < 200 && butvalue >=300  ){
+            enterMenu();
+            // selectedMenuIndex+=1;
+            // if(selectedMenuIndex%3 == 0 && selectedMenuIndex != 0){
+            //   selectedMenuIndex = 0;
+            // }
+
+          }
+
         //but1 = but1_now;
         timebutton = millis();
-        digitalWrite(buttonpin,HIGH);
+        
         
     }   
         return true;
