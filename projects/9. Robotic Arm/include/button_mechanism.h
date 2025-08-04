@@ -34,5 +34,5 @@ int maximumValue(uint16_t highest,uint16_t inputnow);
 void showMaxValue(uint16_t butvalue, uint16_t inputnow);
 // void buttonInterval(u_int16_t butvalue, uint16_t maxbutvalue,uint64_t timebutton, uint16_t floor, uint16_t ceil);
 bool buttonInterval(const uint_fast8_t buttonindex,const int buttonpin,u_int16_t butvalue, uint16_t &maxbutvalue,uint64_t &timebutton, uint16_t floor, uint16_t ceil);
-
+void handleButtonMenu(uint16_t value, uint_fast8_t index);
 #endif 

@@ -57,9 +57,9 @@ void buttonRead(const int buttonpin){
   anyPressed |= buttonInterval(1,LED_4_GRIP    ,ButtonInput,  maxbutselect,timeButtonSelect,200,300);
   anyPressed |= buttonInterval(2,LED_3_ELBOW   ,ButtonInput,  maxbut3,timeButton3,10,100);
 
-  if (anyPressed == 1 && ButtonInput < 200 && ButtonInput >=300){
+  // if (anyPressed == 1 && ButtonInput < 200 && ButtonInput >=300){
     
-  }
+  // }
 
   for(int i = 1; i < 5;i++){
     if(!anyPressed){
@@ -132,14 +132,10 @@ bool buttonInterval(const uint_fast8_t buttonindex,const int buttonpin,u_int16_t
         Serial.println(buttonchar[buttonindex]); 
         Serial.println("Is Clicked");
 
-          if( butvalue < 200 && butvalue >=300  ){
-            enterMenu();
-            // selectedMenuIndex+=1;
-            // if(selectedMenuIndex%3 == 0 && selectedMenuIndex != 0){
-            //   selectedMenuIndex = 0;
-            // }
-
-          }
+        //* To go into menu and handling menu system
+          handleButtonMenu(butvalue,buttonindex);
+        
+        
 
         //but1 = but1_now;
         timebutton = millis();
@@ -152,5 +148,52 @@ bool buttonInterval(const uint_fast8_t buttonindex,const int buttonpin,u_int16_t
     return false;
 
    
+}
+
+void handleButtonMenu(uint16_t value,uint_fast8_t index){
+  //* To enter menu logic
+  if( (value < 200 || value >=300) && onMenu == false ){
+    //Serial.println(onMenu);
+    Serial.println("Enter to Menu");
+    enterMenu();
+    selectedMenuIndex=(int)currentMode;
+    lcd.clear();
+    // selectedMenuIndex+=1;
+    // if(selectedMenuIndex%3 == 0 && selectedMenuIndex != 0){
+    //   selectedMenuIndex = 0;
+    // }
+  }
+   
+ if (onMenu != false)
+ {
+    switch (index)
+    {
+    case 0:
+      Serial.println("Go Left");
+      if(selectedMenuIndex == 0){
+        selectedMenuIndex = 3;
+      }else{
+        selectedMenuIndex-=1;
+      }
+      lcdTimer = millis();
+      break;
+    case 1:
+      Serial.println("Go Select");
+      lcdTimer = millis();
+      break;
+    case 2:
+      Serial.println("Go Right");
+      selectedMenuIndex+=1;
+      if(selectedMenuIndex > 3){
+        selectedMenuIndex = 0;
+      }
+      lcdTimer = millis();
+      break;
+    default:
+      break;
+    }
+ }
+ 
+
 }
 

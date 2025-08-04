@@ -18,14 +18,20 @@ enum menuState{
                 OF_SETTING,ON_SETTING
             };
 
+extern String menuItem[];
+
 extern uint64_t lcdTimer;
 extern uint64_t menuStartTimer;
 extern uint_fast8_t menuTimeout;
+extern uint_fast8_t blink;
+extern uint_fast8_t blinkInterval;
+
 extern SystemMode currentMode;
 extern uint_fast8_t selectedMenuIndex;
 extern uint_fast8_t selectedMenuIndexPast;
+extern uint_fast8_t menuCount;
 extern bool onMenu;
-
+extern bool blinkOn;
 
 //* Class Declaration
 extern LiquidCrystal_I2C lcd;
@@ -35,7 +41,7 @@ extern LiquidCrystal_I2C lcd;
 void initLCD();
 void startUI();
 void enterMenu();
-void handleMenuLogic();
+void handleMenuUI();
 void showMenu();
 void showCurrentMode();
 

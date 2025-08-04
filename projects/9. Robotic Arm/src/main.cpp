@@ -27,22 +27,23 @@ void setup(){
   initLCD();
 
   startUI();
-
+  lcd.print("halo");
 }
 
 void loop(){
   lcd.setCursor(0, 0);
-  lcd.print("halo");
-  if(millis() - lcdTimer > 200){
-    lcd.clear();
-    lcdTimer = millis();
-  }
+  
+  // if(millis() - lcdTimer > 200){
+  //   lcd.clear();
+  //   lcdTimer = millis();
+  // }
 
   if (millis() - timeNow > 0){
     // Read Analog Input from Button that correlate
     buttonRead(BUTTON_PIN);
     timeNow = millis();
 
+    //Show input only when clicked
     if(millis() - timeInputButton > 100 && ButtonInput != 0){
       Serial.print("ButtonRead = ");
       Serial.println(ButtonInput);
@@ -50,7 +51,7 @@ void loop(){
     }
 
     if(onMenu){
-      handleMenuLogic();
+      handleMenuUI();
     }
 
   }
