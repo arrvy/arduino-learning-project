@@ -62,37 +62,52 @@ void startUI(){
 void enterMenu(){
     onMenu = true;
     lcdTimer = millis();
+    selectedMenuIndexPast =(int)currentMode;
     selectedMenuIndex = (int)currentMode;
     lcd.clear();
 }
 
-void handleMenuUI(){
+void handleMenuUI(){ 
     if(millis() - lcdTimer > menuTimeout){
         onMenu = false; 
-        lcdTimer = millis();
+        lcd.clear();
+        digitalWrite(ledPins[0],HIGH);
+        tone(BUZZER,DO_UP,100);
+        tone(BUZZER,RE,100);
+        tone(BUZZER,LA,100);
         showCurrentMode();
+        lcdTimer = millis();
+         digitalWrite(ledPins[0],LOW);
+
+    }
+ //* Else, Agar kode2 selanjutnya di handleMenuUI tidak dilanjutkan
+    else{
+        if (millis() - blink > blinkInterval) {
+        blinkOn = !blinkOn;
+        blink = millis();
+    }
+        //lcd.setCursor(0, 0);
+
         
-    }
-
-    if (millis() - blink > blinkInterval) {
-    blinkOn = !blinkOn;
-    blink = millis();
-  }
-    //lcd.setCursor(0, 0);
-
-    for (int i = 0; i < menuCount; i++) {
-        lcd.setCursor(0, 1);
-        if (i == selectedMenuIndex) {
-            if (blinkOn) {
-                lcd.print("> " + menuItem[i]);
-            } else {
-                lcd.print("          ");  // Kosong saat kedip
-            }
+        if (blinkOn) {
+            lcd.setCursor(0, 1);
+            lcd.print("> " + menuItem[selectedMenuIndex]+"      ");
+        } else {
+            lcd.clear();
+            // lcd.setCursor(0, 1);
+            // lcd.print("                  ");  // Kosong saat kedip
         }
-        // else {
-        // lcd.print("  " + menuItem[i]);
-        // }
     }
+
+    // for (int i = 0; i < menuCount; i++) {
+        // lcd.setCursor(0, 1);
+    //     if (i == selectedMenuIndex) {
+           
+    //     }
+    //     // else {
+    //     // lcd.print("  " + menuItem[i]);
+    //     // }
+    // }
 
 }
 
@@ -102,10 +117,14 @@ void showCurrentMode(){
     lcd.setCursor(1,0);
     lcd.print("Mode Aktif : ");
     lcd.setCursor(1,1);
-    lcd.print(menuItem[selectedMenuIndex]);
+    lcd.print(menuItem[selectedMenuIndexPast]);
     // selectedMenuIndex
     Serial.print("Current Mode Index ");
     Serial.println(selectedMenuIndex);
+    Serial.print("Current Mode Index Past = ");
+    Serial.println(selectedMenuIndexPast);
+    Serial.print("Mode Now :");
+    Serial.println(currentMode);
 }
 
 

@@ -155,9 +155,12 @@ void handleButtonMenu(uint16_t value,uint_fast8_t index){
   if( (value < 200 || value >=300) && onMenu == false ){
     //Serial.println(onMenu);
     Serial.println("Enter to Menu");
-    enterMenu();
-    selectedMenuIndex=(int)currentMode;
+    
     lcd.clear();
+    enterMenu();
+    //selectedMenuIndex=(int)currentMode;
+    
+    
     // selectedMenuIndex+=1;
     // if(selectedMenuIndex%3 == 0 && selectedMenuIndex != 0){
     //   selectedMenuIndex = 0;
@@ -166,6 +169,7 @@ void handleButtonMenu(uint16_t value,uint_fast8_t index){
    
  if (onMenu != false)
  {
+
     switch (index)
     {
     case 0:
@@ -179,7 +183,30 @@ void handleButtonMenu(uint16_t value,uint_fast8_t index){
       break;
     case 1:
       Serial.println("Go Select");
+      
+      switch (selectedMenuIndex)
+        {
+        case 0:
+          currentMode = MODE_MANUAL;
+          break;
+        case 1:
+          currentMode = MODE_AUTO_1;
+          break;
+        case 2:
+          currentMode = MODE_AUTO_2;
+          break;
+        case 3:
+          currentMode = MODE_WIFI;
+          break;
+        default:
+          break;
+        }
+      selectedMenuIndexPast = selectedMenuIndex;
+      onMenu = false;
+      showCurrentMode();
       lcdTimer = millis();
+      tone(BUZZER,MI,200);
+      tone(BUZZER,DO_UP,200);
       break;
     case 2:
       Serial.println("Go Right");
@@ -192,6 +219,11 @@ void handleButtonMenu(uint16_t value,uint_fast8_t index){
     default:
       break;
     }
+
+  Serial.print("Selected Past = ");
+  Serial.println(selectedMenuIndexPast);
+  Serial.print("Selected = ");
+  Serial.println(selectedMenuIndex);
  }
  
 

@@ -27,7 +27,10 @@ void setup(){
   initLCD();
 
   startUI();
+  lcd.setCursor(2,0);
   lcd.print("halo");
+  delay(1000);
+  showCurrentMode();
 }
 
 void loop(){
