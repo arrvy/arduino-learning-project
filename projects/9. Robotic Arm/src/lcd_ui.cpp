@@ -93,7 +93,8 @@ void handleMenuUI(){
             lcd.setCursor(0, 1);
             lcd.print("> " + menuItem[selectedMenuIndex]+"      ");
         } else {
-            lcd.clear();
+            lcd.setCursor(0, 1);
+            lcd.print("  " + menuItem[selectedMenuIndex]+"      ");
             // lcd.setCursor(0, 1);
             // lcd.print("                  ");  // Kosong saat kedip
         }

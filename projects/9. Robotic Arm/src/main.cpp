@@ -58,7 +58,20 @@ void loop(){
     }
 
   }
-
+  switch ((int)currentMode)
+  {
+  case 0: // Manual
+    ManualMode();
+    break;
+  case 1: // Auto 1
+    break;
+  case 2: // Auto 2
+    break;
+  case 3: // Wi-Fi
+    break;
+  default:
+    break;
+  }
 }
 
 

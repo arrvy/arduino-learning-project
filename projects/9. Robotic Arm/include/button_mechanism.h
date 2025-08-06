@@ -2,7 +2,7 @@
 #define BUTTON_MECHANISM
 #include <pin_definition.h>
 #include <lcd_ui.h>
-
+#include <servo_mode.h>
 
 //* Variable Declaration & Inizialitation
 
