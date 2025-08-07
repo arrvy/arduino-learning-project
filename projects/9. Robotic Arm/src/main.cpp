@@ -14,6 +14,7 @@
 
 
 //* Function Declaration
+// For initialize LED and Servo pin
 void initializePin();
 
 void setup(){
@@ -37,6 +38,7 @@ void loop(){
   //   lcdTimer = millis();
   // }
 
+  // For reduce intensity of input
   if (millis() - timeNow > 0){
     // Read Analog Input from Button that correlate
     buttonRead(BUTTON_PIN);
@@ -75,7 +77,6 @@ void loop(){
 
 
 // For Attaching Pin
-
 void initializePin(){
   //* Input Mode
 

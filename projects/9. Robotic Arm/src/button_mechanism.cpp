@@ -50,75 +50,27 @@ void printlnButtonCondition(bool butCondition, bool butConditionNow){
 void buttonRead(const int buttonpin){
   ButtonInput = analogRead(buttonpin);
 
-
+  // Variable for signal when LED is activated after button clicked, and used for turn off the LED
   bool anyPressed = false;
 
+  // 3 Interval with 3 button (I should make the interval more wider, i still only use 0-1000 rather 0-4095)
+  // And this make some fluctuation on lower inteval
   anyPressed |= buttonInterval(0,LED_2_SHOULDER,ButtonInput,  maxbut1,timeButton1,500,830);
   anyPressed |= buttonInterval(1,LED_4_GRIP    ,ButtonInput,  maxbutselect,timeButtonSelect,200,330);
   anyPressed |= buttonInterval(2,LED_3_ELBOW   ,ButtonInput,  maxbut3,timeButton3,50,94);
-
-  // if (anyPressed == 1 && ButtonInput < 200 && ButtonInput >=300){
-    
-  // }
 
   for(int i = 1; i < 5;i++){
     if(!anyPressed){
         digitalWrite(ledPins[i],LOW);
     }
   }
-  // if (ButtonInput >= 550 && ButtonInput < 800)
-  // {
-  //   // Serial.println("Button Left (KEY 1) Is Clicked");
-  //   maxbut1 = maximumValue(maxbut1,ButtonInput);
-  //   showMaxValue(maxbut1,ButtonInput);
-
-  //   //* Mengurangi Intensitas Input Masuk
-  //   if(millis() - timeButton1 >= 200){
-  //     Serial.println("Button Left (KEY 1) Is Clicked");
-  //     //but1 = but1_now;
-  //     timeButton1 = millis();
-  //   }
-
-  // }else if(ButtonInput >300 && ButtonInput < 450)
-  // {
-  //   Serial.println("Button Select and Left (KEY 2 & KEY 3) Is Clicked");
-
-  // }else if (ButtonInput >= 200 && ButtonInput < 300)
-  // { 
-  //   // Serial.println("Button Select (SELECT) Is Clicked");
-  //   maxbutselect = maximumValue(maxbutselect,ButtonInput);
-  //   showMaxValue(maxbutselect,ButtonInput);
-
-  //   if(millis() - timeButtonSelect >= 200){
-  //     Serial.println("Button Select (SELECT) Is Clicked");
-  //     //but1 = but1_now;
-  //     timeButtonSelect = millis();
-  //   }
-
-  // }else if (ButtonInput >= 5 && ButtonInput < 100)
-  // {
-  //   // Serial.println("Button Right Is (KEY 3) Clicked");
-  //   maxbut3 = maximumValue(maxbut3,ButtonInput);
-  //   showMaxValue(maxbut3,ButtonInput);
-
-  //   if(millis() - timeButton3 >= 200){
-  //     Serial.println("Button Right Is (KEY 3) Clicked");
-  //     //but1 = but1_now;
-  //     timeButton3 = millis();
-  //   }
-
-  // } else if(ButtonInput >= 800 && ButtonInput < 1000){
-  //   Serial.println("Button Left and Select (KEY 1 & KEY 2) Is Clicked");
-  // } else
-  // {
-  //   // Serial.println("Not Clicked");
-  // }
-
+  
 }
 
 //? ini baru gunanya aku belajar saat semester 1, materi Parameter menggunakan Reference
+// Function to make interval of button input
 bool buttonInterval(const uint_fast8_t buttonindex,const int buttonpin,u_int16_t butvalue, uint16_t &maxbutvalue,uint64_t &timebutton, uint16_t floor, uint16_t ceil){
-    if (butvalue >= floor && butvalue < ceil){    
+  if (butvalue >= floor && butvalue < ceil){    
     digitalWrite(buttonpin,HIGH);
 
     // Serial.println("Button Left (KEY 1) Is Clicked");
@@ -126,51 +78,33 @@ bool buttonInterval(const uint_fast8_t buttonindex,const int buttonpin,u_int16_t
     // showMaxValue(maxbutvalue,butvalue);
 
     //* Mengurangi Intensitas Input Masuk
-        if(millis() - timebutton >= 200){
-        digitalWrite(buttonpin,HIGH);
-        Serial.print("Button ");
-        Serial.println(buttonchar[buttonindex]); 
-        Serial.println("Is Clicked");
+    if(millis() - timebutton >= 200){
+      digitalWrite(buttonpin,HIGH);
+      Serial.print("Button ");
+      Serial.println(buttonchar[buttonindex]); 
+      Serial.println("Is Clicked");
 
-        //* To go into menu and handling menu system
-          handleButtonMenu(butvalue,buttonindex);
-        
-        
-
-        //but1 = but1_now;
-        timebutton = millis();
-        
-        
+      //* To go into menu and handling menu system
+      handleButtonMenu(butvalue,buttonindex);
+      timebutton = millis();
     }   
-        return true;
-    }
-
-    return false;
-
-   
+    return true; // Value for anypressed when clicked
+  }
+  return false; // Value when not clicked
 }
 
+// Function to handling button menu from buttonInterval
 void handleButtonMenu(uint16_t value,uint_fast8_t index){
   //* To enter menu logic
   if( (value < 200 || value >=300) && onMenu == false ){
-    //Serial.println(onMenu);
     Serial.println("Enter to Menu");
-    
     lcd.clear();
     enterMenu();
-    //selectedMenuIndex=(int)currentMode;
-    
-    
-    // selectedMenuIndex+=1;
-    // if(selectedMenuIndex%3 == 0 && selectedMenuIndex != 0){
-    //   selectedMenuIndex = 0;
-    // }
   }
    
  if (onMenu != false )
  {
-
-    switch (index)
+    switch (index) // If onmenu, Menu mechanism will activate
     {
     case 0:
       Serial.println("Go Left");
@@ -182,7 +116,7 @@ void handleButtonMenu(uint16_t value,uint_fast8_t index){
       lcdTimer = millis();
       break;
     case 1:
-      Serial.println("Go Select");
+      Serial.println("Go Select"); // When selected, currentMode will change
       
       switch (selectedMenuIndex)
         {
@@ -201,11 +135,11 @@ void handleButtonMenu(uint16_t value,uint_fast8_t index){
         default:
           break;
         }
-      selectedMenuIndexPast = selectedMenuIndex;
-      onMenu = false;
+      selectedMenuIndexPast = selectedMenuIndex; // Index for LCD UI
+      onMenu = false; // To exit menu logic after select
       showCurrentMode();
       lcdTimer = millis();
-      tone(BUZZER,MI,200);
+      tone(BUZZER,MI,200); // sound feedback
       tone(BUZZER,DO_UP,200);
       break;
     case 2:
@@ -220,12 +154,11 @@ void handleButtonMenu(uint16_t value,uint_fast8_t index){
       break;
     }
 
-  Serial.print("Selected Past = ");
-  Serial.println(selectedMenuIndexPast);
-  Serial.print("Selected = ");
-  Serial.println(selectedMenuIndex);
+    // Debugging
+    Serial.print("Selected Past = ");
+    Serial.println(selectedMenuIndexPast);
+    Serial.print("Selected = ");
+    Serial.println(selectedMenuIndex);
  }
- 
-
 }
 

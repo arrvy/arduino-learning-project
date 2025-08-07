@@ -2,21 +2,22 @@
 #include <lcd_ui.h>
 
 //* Variable Definition
+SystemMode currentMode = MODE_MANUAL; // Default mode with value from enum SystemMode
+String menuItem[] = {"Mode Manual","Auto 1","Auto 2","Wi-Fi"}; //Array string for LCD interface
 
-SystemMode currentMode = MODE_MANUAL;
-
-String menuItem[] = {"Mode Manual","Auto 1","Auto 2","Wi-Fi"};
-
+// Timing variable for millis mechanism
 uint64_t lcdTimer = millis();
-uint_fast8_t menuTimeout = 3000;
-uint_fast8_t blink=0;
-uint_fast8_t blinkInterval=500;
+uint_fast8_t menuTimeout = 3000; // Time for timeout (3 seconds) when we not decide to select mode
+uint_fast64_t blink=0; // Flag for blink mechanism
+uint_fast8_t blinkInterval=500; // Interval for blink mechanism (.5 seconds)
 
-uint_fast8_t selectedMenuIndex = (int)currentMode;
-uint_fast8_t selectedMenuIndexPast = 0;
+// Selecting mechanism
+uint_fast8_t selectedMenuIndex = (int)currentMode; //SelectedMenuIndex  with default value from currentMode
+uint_fast8_t selectedMenuIndexPast = 0; //Placeholder for SelectedMenuIndex when enterMenu()
 uint_fast8_t menuCount=4;
 bool onMenu = false;
 bool blinkOn = false;
+
 //* Class Definition
 LiquidCrystal_I2C lcd( LCD_ADDRESS , Kolom , Baris);
 
