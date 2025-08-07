@@ -19,7 +19,6 @@ void ManualMode(){
      readPotentiometer(POTENTIO_4_GRIP,3);
 
     for(int i = 0; i < 4 ; i++){
-        
         writePotentiometer(i);
     }
 
@@ -38,15 +37,15 @@ void writeServo(uint_fast8_t potentiometer[]){
         //* Jangan lupa inisialisasi servo
     }
 
-    servo_1.write(servoValueSmoothed[0]);
-    servo_2.write(servoValueSmoothed[1]);
-    servo_3.write(servoValueSmoothed[2]);
-    servo_4.write(servoValueSmoothed[3]);
+    servo_1.write(potentiometerValue[0]);
+    servo_2.write(potentiometerValue[1]);
+    servo_3.write(potentiometerValue[2]);
+    servo_4.write(potentiometerValue[3]);
 }
 
 void initServo(){
-    servo_1.attach(ServoPins[0]);
-    servo_2.attach(ServoPins[1]);
-    servo_3.attach(ServoPins[2]);
-    servo_4.attach(ServoPins[3]);
+    servo_1.attach(ServoPins[0],500,2500);
+    servo_2.attach(ServoPins[1],500,2500);
+    servo_3.attach(ServoPins[2],500,2500);
+    servo_4.attach(ServoPins[3],500,2500);
 }
