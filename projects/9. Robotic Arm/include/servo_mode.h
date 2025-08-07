@@ -14,13 +14,13 @@ extern uint_fast8_t servoValuePast[4];
 extern uint_fast8_t writingIteration;
 
 //* Declaration Function
-void InitServoPotition();
-void ManualMode();
-void Auto1Mode();
-void Auto2Mode();
-void WiFiMode();
+void InitServoPotition(); //To initialize servo posititon to neutral value (90°)
+void ManualMode(); // Manual mode that use potentiometer mechanism
+void Auto1Mode(); // Auto1 that use recordable value from Python code
+void Auto2Mode(); // Maybe used Serial Protocol
+void WiFiMode(); // Mode that use web based mechanism
 
-
+// Make servo move smoother
 void writeServo(uint_fast8_t poteniometer[4]);
 void initServo();
 
