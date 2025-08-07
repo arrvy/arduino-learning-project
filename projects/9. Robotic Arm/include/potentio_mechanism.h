@@ -6,6 +6,7 @@
 
 //* Declaration Class
 
+
 //* Declaration Variable
 extern uint_fast8_t potentiometerValue[4];
 extern uint_fast8_t potentiometerValuePast[4];
