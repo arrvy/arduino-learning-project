@@ -96,20 +96,9 @@ void handleMenuUI(){
         } else {
             lcd.setCursor(0, 1);
             lcd.print("  " + menuItem[selectedMenuIndex]+"      ");
-            // lcd.setCursor(0, 1);
-            // lcd.print("                  ");  // Kosong saat kedip
+
         }
     }
-
-    // for (int i = 0; i < menuCount; i++) {
-        // lcd.setCursor(0, 1);
-    //     if (i == selectedMenuIndex) {
-           
-    //     }
-    //     // else {
-    //     // lcd.print("  " + menuItem[i]);
-    //     // }
-    // }
 
 }
 
