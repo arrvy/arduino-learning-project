@@ -3,8 +3,6 @@
 #include <pin_definition.h>
 #include <button_mechanism.h>
 //#include <lcd_ui.h>
-
-
 //* TODO : Buat sistem ambil nama var
 // #include <string.h>
 #define STRINGIZE_THIS(var) #var
@@ -16,19 +14,17 @@
 
 
 //* Function Declaration
-void attachingPin();
-
-
-
+void initializePin();
 
 void setup(){
   Serial.begin(115200);
-  attachingPin();
+  initializePin();
   initLCD();
 
   startUI();
   lcd.setCursor(2,0);
   lcd.print("halo");
+  writeServo(servoValue);
   delay(1000);
   showCurrentMode();
 }
@@ -80,7 +76,7 @@ void loop(){
 
 // For Attaching Pin
 
-void attachingPin(){
+void initializePin(){
   //* Input Mode
 
   //* Output Mode
@@ -89,5 +85,7 @@ void attachingPin(){
   pinMode(LED_2_SHOULDER,OUTPUT);
   pinMode(LED_3_ELBOW,OUTPUT);
   pinMode(LED_4_GRIP,OUTPUT);
+  initServo();
+  
 }
 

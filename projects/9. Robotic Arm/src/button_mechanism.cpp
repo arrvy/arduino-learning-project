@@ -53,9 +53,9 @@ void buttonRead(const int buttonpin){
 
   bool anyPressed = false;
 
-  anyPressed |= buttonInterval(0,LED_2_SHOULDER,ButtonInput,  maxbut1,timeButton1,550,830);
+  anyPressed |= buttonInterval(0,LED_2_SHOULDER,ButtonInput,  maxbut1,timeButton1,500,830);
   anyPressed |= buttonInterval(1,LED_4_GRIP    ,ButtonInput,  maxbutselect,timeButtonSelect,200,330);
-  anyPressed |= buttonInterval(2,LED_3_ELBOW   ,ButtonInput,  maxbut3,timeButton3,10,150);
+  anyPressed |= buttonInterval(2,LED_3_ELBOW   ,ButtonInput,  maxbut3,timeButton3,50,94);
 
   // if (anyPressed == 1 && ButtonInput < 200 && ButtonInput >=300){
     

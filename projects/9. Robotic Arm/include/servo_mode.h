@@ -22,5 +22,8 @@ void WiFiMode();
 
 
 void writeServo(uint_fast8_t poteniometer[4]);
+void initServo();
+
+extern Servo servo_1,servo_2,servo_3,servo_4;
 
 #endif
