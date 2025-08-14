@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "10. ESP32 using LittleFS",
+			"path": "projects/10. ESP32 using LittleFS"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"chrono": "cpp",
+			"cmath": "cpp"
+		}
+	}
+}

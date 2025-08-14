@@ -81,3 +81,5 @@ Proyek ini adalah platform pembelajaran yang efektif untuk memahami interaksi an
 ## Source
 
 [ProjectHub Arduino : Recordable Cardboard Robotic Arm](https://projecthub.arduino.cc/ryan6534/recordable-cardboard-robot-arm-4b6783)
+
+[Instructables : Use 1 Analog Input for 6 Buttons for Arduino](https://www.instructables.com/Use-1-Analog-Input-for-6-Buttons-for-Arduino/)
