@@ -4,8 +4,8 @@
 			"path": "."
 		},
 		{
-			"name": "10. ESP32 using LittleFS",
-			"path": "projects/10. ESP32 using LittleFS"
+			"name": "11. Control Relay 4 Channel using Web Server",
+			"path": "projects/11. Control Relay 4 Channel using Web Server"
 		}
 	],
 	"settings": {
