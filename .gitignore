@@ -1,5 +1,6 @@
 # Root
 .vscode
+.arduino-learning-project.code-workspace
 
 #? Project 8
 /projects/8. Try PlatfromIO/.pio
