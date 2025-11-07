@@ -12,25 +12,28 @@
 
 #include <oled.h>
 #include <rtc.h>
+#include <seven_segment.h>
 #include <led_matrix.h>
 
-
+uint64_t currentMillis;
 
 void setup() {
   Serial.begin(115200);
   // Wire.begin(SDA,SCL);
   checkOLED();
+  RTCSetup();
+  sevenSegmentSetup();
+  ledMatrixSetup();
 
 }
 
 void loop() {
-Serial.write("Run \n");
-OLEDDisplay("Hello World");
-delay(5000);
-OLEDDisplay("Mantapp");
-delay(5000);
-OLEDDisplay("Uhuyy");
-delay(5000);
+currentMillis = millis();
+
+OLEDTextList();
+RTCUpdate();
+sevenSegmentUpdate();
+ledMatrixDrawLove();
 
 }
 

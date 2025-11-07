@@ -12,9 +12,8 @@
 #include <string.h>
 
 // Inlcude
+#include <rtc.h>
 
-extern void checkOLED();
-extern void OLEDDisplay(String);
 
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
@@ -26,5 +25,15 @@ extern void OLEDDisplay(String);
 //  extern agar diketahui compiler kalau ada "display"
 
 extern Adafruit_SSD1306 display;
+
+// ? Function Declaration
+extern void checkOLED();
+extern void OLEDDisplay(String);
+extern void OLEDTextList();
+
+// ? Variable Declaration
+
+extern uint64_t OLEDmillis;
+extern uint8_t textCase;
 
 #endif
